@@ -43,4 +43,4 @@ steps:
   inputs:
     azureSubscription: 'PipeLineDevopsTest'
     appName: 'dzfwebtest20200424122808'
-    package: '/home/dingzongfu/PipelineTestDzf/Pipelines/First-DotNet.CI/**/**/*.zip'
+    package: '$(System.DefaultWorkingDirectory)/**/*.zip'
