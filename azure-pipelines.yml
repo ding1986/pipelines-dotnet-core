@@ -41,6 +41,6 @@ steps:
     zipAfterPublish: True
 - task: AzureWebApp@1
   inputs:
-    azureSubscription: '<Azure service connection>'
+    azureSubscription: 'PipeLineDevopsTest'
     appName: 'dzfwebtest'
     package: $(System.DefaultWorkingDirectory)/**/*.zip
