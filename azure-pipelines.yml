@@ -17,6 +17,6 @@ steps:
     scriptType: 'pscore'
     scriptLocation: 'inlineScript'
     inlineScript: |
-      az group create --name dzfpipelinecreate --location "southeastasia"
+      az group create --name dzfpipelinecreate1111 --location "southeastasia"
     addSpnToEnvironment: true
     useGlobalConfig: true
