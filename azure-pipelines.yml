@@ -5,7 +5,7 @@
 steps:
 - task: AzureCLI@2
   inputs:
-    azureSubscription: 'PipeLineDevopsTest'
+    azureSubscription: 'dzfpipelineconnection'
     scriptType: 'ps'
     scriptLocation: 'inlineScript'
     inlineScript: |
