@@ -14,9 +14,9 @@ steps:
 - task: AzureCLI@2
   inputs:
     azureSubscription: 'dzfsubconnections'
-    scriptType: 'pscore'
+    scriptType: 'ps'
     scriptLocation: 'inlineScript'
     inlineScript: |
-      az group create --name dzfpipelinecreate1111  --location  "southeastasia"
+      az group delete --name dzfpipelinecreate1111  --yes y
     addSpnToEnvironment: true
     useGlobalConfig: true
