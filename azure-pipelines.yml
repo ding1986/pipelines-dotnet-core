@@ -17,6 +17,6 @@ steps:
     scriptType: 'pscore'
     scriptLocation: 'inlineScript'
     inlineScript: |
-      az group delete --name dzfpipelinecreate1111  --yes y --no-wait
+      az group delete --name dzfpipelinecreate1111  --yes -y --no-wait
     addSpnToEnvironment: true
     useGlobalConfig: true
