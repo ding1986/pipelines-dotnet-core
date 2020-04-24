@@ -3,13 +3,20 @@
 # Add steps that run tests, create a NuGet package, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
 steps:
-- task: AzureCLI@2
+- task: Bash@3
   inputs:
-    azureSubscription: 'dzfpipelineconnection'
-    scriptType: 'ps'
-    scriptLocation: 'inlineScript'
-    inlineScript: |
-      az --version
-      az account show
-    addSpnToEnvironment: true
-    useGlobalConfig: true
+    targetType: 'inline'
+    script: |
+      # Write your commands here
+      
+#       echo 'Hello world'
+# - task: AzureCLI@2
+#   inputs:
+#     azureSubscription: 'dzfpipelineconnection'
+#     scriptType: 'ps'
+#     scriptLocation: 'inlineScript'
+#     inlineScript: |
+#       az --version
+#       az account show
+#     addSpnToEnvironment: true
+#     useGlobalConfig: true
