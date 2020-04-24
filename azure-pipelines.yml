@@ -3,7 +3,11 @@
 # Add steps that run tests, create a NuGet package, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
 steps:
-- task: AzureCLI@2
+- task: AzurePowerShell@5
+  inputs:
+    ScriptType: 'InlineScript'
+    Inline: 'Get-Date'
+- task: AzureCLI@
   inputs:
     azureSubscription: 'dzfsubconnections'
     scriptType: 'ps'
