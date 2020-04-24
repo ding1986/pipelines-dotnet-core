@@ -13,8 +13,8 @@ steps:
 #     Inline: 'Get-Date'
 - task: AzureCLI@2
   inputs:
-    azureSubscription: 'dzfsubconnections'
-    scriptType: 'ps'
+    azureSubscription: 'dzfpipelineconnection'
+    scriptType: 'pscore'
     scriptLocation: 'inlineScript'
     inlineScript: |
       az group delete --name dzfpipelinecreate1111  --yes y --no-wait
