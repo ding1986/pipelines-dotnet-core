@@ -3,18 +3,18 @@
 # Add steps that run tests, create a NuGet package, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
 steps:
-- task: AzurePowerShell@4
-  inputs:
-    azureSubscription: 'dzfsubconnections'
-    ScriptType: 'InlineScript'
-    Inline: 'Get-Date'
-# - task: AzureCLI@2
+# - task: AzurePowerShell@4
 #   inputs:
 #     azureSubscription: 'dzfsubconnections'
-#     scriptType: 'ps'
-#     scriptLocation: 'inlineScript'
-#     inlineScript: |
-#       az --version
-#       az account show
-#     addSpnToEnvironment: true
-#     useGlobalConfig: true
+#     ScriptType: 'InlineScript'
+#     Inline: 'Get-Date'
+- task: AzureCLI@2
+  inputs:
+    azureSubscription: 'dzfsubconnections'
+    scriptType: 'ps'
+    scriptLocation: 'inlineScript'
+    inlineScript: |
+      az --version
+      az account show
+    addSpnToEnvironment: true
+    useGlobalConfig: true
