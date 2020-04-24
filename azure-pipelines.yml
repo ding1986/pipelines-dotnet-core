@@ -7,7 +7,7 @@ steps:
   inputs:
     ScriptType: 'InlineScript'
     Inline: 'Get-Date'
-- task: AzureCLI@
+- task: AzureCLI@2
   inputs:
     azureSubscription: 'dzfsubconnections'
     scriptType: 'ps'
