@@ -3,12 +3,7 @@
 # Add steps that run tests, create a NuGet package, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
 steps:
-  - task: AzureCLI@2
-    inputs:
-      azureSubscription: 'PipeLineDevopsTest'
-      scriptType: 'ps'
-      scriptLocation: 'inlineScript'
-      inlineScript: |
-        inlineScript: |
-              az --version
-              az account show
+- task: AzurePowerShell@5
+  inputs:
+    ScriptType: 'InlineScript'
+    Inline: 'Get-Date'
