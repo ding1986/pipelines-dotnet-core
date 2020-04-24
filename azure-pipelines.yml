@@ -2,14 +2,13 @@
 # Build and test ASP.NET Core projects targeting .NET Core.
 # Add steps that run tests, create a NuGet package, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
-
 steps:
-- task: AzureCLI@2
-  displayName: Azure CLI
-  inputs:
-    azureSubscription: 'PipeLineDevopsTest'
-    scriptType: pscore
-    scriptLocation: inlineScript
-    inlineScript: |
-      az --version
-      az account show
+  - task: AzureCLI@2
+    inputs:
+      azureSubscription: 'PipeLineDevopsTest'
+      scriptType: 'ps'
+      scriptLocation: 'inlineScript'
+      inlineScript: |
+        inlineScript: |
+              az --version
+              az account show
