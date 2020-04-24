@@ -5,6 +5,7 @@
 steps:
 - task: AzurePowerShell@5
   inputs:
+    azureSubscription: 'dzfsubconnections'
     ScriptType: 'InlineScript'
     Inline: 'Get-Date'
 - task: AzureCLI@2
