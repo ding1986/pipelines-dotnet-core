@@ -2,8 +2,8 @@
 # Build and test ASP.NET Core projects targeting .NET Core.
 # Add steps that run tests, create a NuGet package, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
-pool:
-  VmImage: 'windows-2019'
+# pool:
+#   VmImage: 'windows-2019'
 
 steps:
 # - task: AzurePowerShell@4
