@@ -2,45 +2,13 @@
 # Build and test ASP.NET Core projects targeting .NET Core.
 # Add steps that run tests, create a NuGet package, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
-
-trigger:
-- master
-
-pool:
-  vmImage: 'ubuntu-latest'
-
-variables:
-  buildConfiguration: 'Release'
-
 steps:
-- task: DotNetCoreCLI@2
-  displayName: Build
+- task: AzureCLI@2
+  displayName: Azure CLI
   inputs:
-    command: build
-    projects: '**/*.csproj'
-    arguments: '--configuration Release' # Update this to match your need
-- task: DotNetCoreCLI@2
-  inputs:
-    command: publish
-    publishWebProjects: True
-    arguments: '--configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)'
-    zipAfterPublish: True
-# this code takes all the files in $(Build.ArtifactStagingDirectory) and uploads them as an artifact of your build.
-- task: PublishBuildArtifacts@1
-  inputs:
-    pathtoPublish: '$(Build.ArtifactStagingDirectory)' 
-    artifactName: 'myWebsiteName'
-# ...
-# do this after you've built your app, near the end of your pipeline in most cases
-# for example, you do this before you deploy to an Azure web app on Windows
-- task: DotNetCoreCLI@2
-  inputs:
-    command: publish
-    publishWebProjects: True
-    arguments: '--configuration $(BuildConfiguration)' #--output $(Build.ArtifactStagingDirectory)'
-    zipAfterPublish: True
-- task: AzureWebApp@1
-  inputs:
-    azureSubscription: 'PipeLineDevopsTest'
-    appName: 'dzfwebtest20200424022634'
-    package: '**/*.zip'
+    azureSubscription: <Name of the Azure Resource Manager service connection>
+    scriptType: ps
+    scriptLocation: inlineScript
+    inlineScript: |
+      az --version
+      az account show
