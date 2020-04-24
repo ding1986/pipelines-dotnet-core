@@ -42,5 +42,5 @@ steps:
 - task: AzureWebApp@1
   inputs:
     azureSubscription: 'PipeLineDevopsTest'
-    appName: 'dzfwebtest20200424122808'
+    appName: 'dzfwebtest20200424022634'
     package: '**/*.zip'
