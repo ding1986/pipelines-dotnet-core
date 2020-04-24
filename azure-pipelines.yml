@@ -7,9 +7,8 @@ steps:
   inputs:
     targetType: 'inline'
     script: |
-      # Write your commands here
+      echo 'Hello world'
       
-#       echo 'Hello world'
 # - task: AzureCLI@2
 #   inputs:
 #     azureSubscription: 'dzfpipelineconnection'
