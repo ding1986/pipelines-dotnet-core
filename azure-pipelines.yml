@@ -6,4 +6,5 @@ jobs:
   pool:
     VmImage: "ubuntu-16.04"
   steps:
+  - checkout: none
   - bash: echo "hello ubuntu"
