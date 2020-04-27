@@ -1,10 +1,14 @@
 trigger: none
 
 jobs: 
-- job: jobparams
+- job: A
   timeoutInMinutes: 10
   pool:
     VmImage: "ubuntu-16.04"
   steps:
   - checkout: none
   - bash: echo "hello ubuntu"
+
+- job: B
+  steps:
+    - bash: uname -a
