@@ -4,6 +4,7 @@ jobs:
 - deployment: mydeployment
   pool: 
     vmImage: "macOS-10.14"
+  environment: 'smarthotel-dev'
   strategy:
     runOnce:
       deploy:
