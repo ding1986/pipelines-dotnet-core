@@ -1,30 +1,19 @@
 trigger: none
 
-stages:
-- stage: A
-  jobs: 
-  - job: A
-    pool:
-      VmImage: "ubuntu-16.04"
-      checkout: none
-    steps:
-    - bash: uname -a; echo A-A;
-  - job: B
-    pool:
-      VmImage: "macOS-10.14"
-      checkout: none
-    steps:
-    - bash: uname -a; echo A-B;
-- stage: B
-  jobs:
-    - job: A
-      pool: 
-        VmImage: 'macOS-10.14'
-      steps:
-      - bash: uname -a; echo B-A;
-    - job: B
-      pool:
-        VmImage: 'Ubuntu-18.04'
-        checkout: none
-      steps:
-      - bash: uname -a; echo B-B;
+jobs:
+- deployment: mydeployment
+  pool: 
+    vmImage: "macOS-10.14"
+  strategy:
+    runOnce:
+      deploy:
+        steps:
+        - script: uname -a
+
+  # stages:
+  #   - stage:
+  #     deployment: 
+  #     pool: 
+  #       name: mypool
+  #       demands: 
+  #       - os.agent -equals Darwn
