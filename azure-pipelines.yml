@@ -1,22 +1,7 @@
-# ASP.NET Core
-# Build and test ASP.NET Core projects targeting .NET Core.
-# Add steps that run tests, create a NuGet package, deploy, and more:
-# https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
-# pool:
-#   VmImage: 'windows-2019'
+trigger: none
+
+pool:
+  VmImage: "ubuntu-16.04"
 
 steps:
-# - task: AzurePowerShell@4
-#   inputs:
-#     azureSubscription: 'dzfsubconnections'
-#     ScriptType: 'InlineScript'
-#     Inline: 'Get-Date'
-- task: AzureCLI@2
-  inputs:
-    azureSubscription: 'dzfsubconnections'
-    scriptType: 'pscore'
-    scriptLocation: 'inlineScript'
-    inlineScript: |
-      az group delete --name dzfpipelinecreate1111  --yes -y --no-wait
-    addSpnToEnvironment: true
-    useGlobalConfig: true
+  - bash: echo "hello ubuntu"
