@@ -1,20 +1,15 @@
 trigger: none
 
 jobs:
-- deployment: mydeployment
-  pool: 
-    vmImage: "macOS-10.14"
-  environment: 'smarthotel-dev'
-  strategy:
-    runOnce:
-      deploy:
-        steps:
-        - script: uname -a
+- job: A
+  steps:
+  - script: "echo ##vso[task.setvariable variable=skipsubsequent;isOutput=true]false"
+    name: printvar
 
-  # stages:
-  #   - stage:
-  #     deployment: 
-  #     pool: 
-  #       name: mypool
-  #       demands: 
-  #       - os.agent -equals Darwn
+- job: B
+  condition: and(succeeded(), ne(dependencies.A.outputs['printvar.skipsubsequent'], 'true'))
+  dependsOn: A
+
+  steps:
+  - script: echo job B running
+  
