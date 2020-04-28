@@ -1,6 +1,7 @@
 trigger: none
 
 steps:
+  - checkout: none
   - bash: echo "Agent.MachineName:" $MACHINENAME
     env: 
       MACHINENAME : $(Agent.MachineName)
