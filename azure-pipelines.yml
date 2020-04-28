@@ -3,7 +3,7 @@ trigger: none
 steps:
   - checkout: none
   - bash: echo "Agent.MachineName:" $MACHINENAME
-  - bash: echo "Agent.MachineName:" $MACHINENAME
+          echo "Agent.Os:" $MACHINENAME
     env: 
       MACHINENAME : $(Agent.MachineName)
       OS : $(Agent.OS)
