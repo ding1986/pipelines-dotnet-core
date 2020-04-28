@@ -2,16 +2,28 @@ trigger: none
 
 steps:
   - checkout: none
-  - bash: echo "Agent.MachineName:" $MACHINENAME
-          echo "Agent.Os:" $MACHINENAME
+  - bash: echo "Agent.MachineName:" $MACHINENAME;
+          echo "Agent.Os:" $OS;
+          echo "Agent.OSArchitecture:" $Arch;
+          echo "Agent.BuildDirectory:" $BuildDir;
+          echo "Agent.HomeDirectory:" $HomeDir;
+          echo "Agent.JobName:" $JOBNAME;
+          echo "Agent.ToolsDirectory:" $TOOLDIR;
+          echo "Agent.WorkFolder:" $WORKFOLDER;
+          echo "Build.ArtifactStagingDirectory:" $ARTIFACTDIR;
+          echo "Build.BuildUri:" $BUILDURL;
+          echo "Build.BinariesDirectory:" $BINARYDIR;
+
     env: 
       MACHINENAME : $(Agent.MachineName)
       OS : $(Agent.OS)
       Arch : $(Agent.OSArchitecture)
       BuildDir : $(Agent.BuildDirectory)
       HomeDir : $(Agent.HomeDirectory)
-      ID : $(Agent.Id)
       JOBNAME : $(Agent.JobName)
       TOOLDIR : $(Agent.ToolsDirectory)
       WORKFOLDER : $(Agent.WorkFolder)
+      ARTIFACTDIR : $(Build.ArtifactStagingDirectory)
+      BUILDURL : $(Build.BuildUri)
+      BINARYDIR : $(Build.BinariesDirectory)
 
