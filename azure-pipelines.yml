@@ -2,7 +2,5 @@ trigger: none
 
 steps:
   - checkout: none
-  - bash: echo "please input a number:";
-          read a;
-          echo "your input is:" a;
+  - bash: echo ${{AGENT_OS}}
 
