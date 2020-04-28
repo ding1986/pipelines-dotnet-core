@@ -1,28 +1,29 @@
 trigger: none
 
 variables:
-  global_variable : root
+ GLOBAL_MYSECRET: $(mySecret) # this will not work because the variable needs to be mapped as env
+ GLOBAL_MY_MAPPED_ENV_VAR: foo # this will not work because the variable needs to be mapped as env
 
+steps:
 
-jobs:
-- job: job1
-  pool:
-    VmImage : "Ubuntu-16.04"
-  variables:
-    job_variable : job1
-  steps:
-    - bash: echo "global_variable:" $(global_variable);
-            echo "job_variable:" $(job_variable);
-            echo "JOB_VARIABLE:" $JOB_VARIABLE
+- powershell: |
+    # Using an input-macro:
+    Write-Host "This works: $(mySecret)"
 
-- job: job2
-  pool:
-    VmImage : "Ubuntu-16.04"
-  variables:
-    job_variable : job2
-  steps:
-    - bash: echo "global_variable:" $(global_variable);
-            echo "job_variable:" $(job_variable);
-            echo "JOB_VARIABLE:" $JOB_VARIABLE
+    # Using the env var directly:
+    Write-Host "This does not work: $env:MYSECRET"
+
+    # Using the env var through the variables mapping will not work:
+    Write-Host "This does not work either: $env:GLOBAL_MYSECRET"
+
+    # Using the global var mapped in the pipeline. It is not a secret var:
+    Write-Host "This works: $env:GLOBAL_MY_MAPPED_ENV_VAR" 
+
+    # Using the mapped env var:
+    Write-Host "This works: $env:MY_MAPPED_ENV_VAR"    # Recommended
+
+  env:
+    MY_MAPPED_ENV_VAR: $(mySecret) # right way to map to an env variable
+
 
 
