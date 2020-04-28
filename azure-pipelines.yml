@@ -1,5 +1,6 @@
 trigger: none
 
 steps:
-  - bash: echo "Agent.MachineName:" $Agent.MachineName
-          echo "test"
+  - bash: echo "Agent.MachineName:" $MACHINENAME
+    env: 
+      MACHINENAME : $(Agent.MachineName)
