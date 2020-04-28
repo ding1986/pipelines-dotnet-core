@@ -2,5 +2,5 @@ trigger: none
 
 steps:
   - checkout: none
-  - bash: echo ${{AGENT_OS}}
+  - bash: echo ${{Agent.Os}}
 
