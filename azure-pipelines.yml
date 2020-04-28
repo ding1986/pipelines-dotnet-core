@@ -3,5 +3,15 @@ trigger: none
 steps:
   - checkout: none
   - bash: echo "Agent.MachineName:" $MACHINENAME
+  - bash: echo "Agent.MachineName:" $MACHINENAME
     env: 
       MACHINENAME : $(Agent.MachineName)
+      OS : $(Agent.OS)
+      Arch : $(Agent.OSArchitecture)
+      BuildDir : $(Agent.BuildDirectory)
+      HomeDir : $(Agent.HomeDirectory)
+      ID : $(Agent.Id)
+      JOBNAME : $(Agent.JobName)
+      TOOLDIR : $(Agent.ToolsDirectory)
+      WORKFOLDER : $(Agent.WorkFolder)
+
