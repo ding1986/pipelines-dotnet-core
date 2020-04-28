@@ -1,4 +1,5 @@
 trigger: none
 
 steps:
-  - bash: echo $Agent.MachineName
+  - bash: echo "Agent.MachineName:" $Agent.MachineName
+          echo "test"
