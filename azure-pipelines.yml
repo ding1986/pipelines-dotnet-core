@@ -42,5 +42,5 @@ steps:
   inputs:
     azureSubscription: 'dzfenvironmenttest'
     appType: webAppLinux
-    appName: 'mywebapp'
+    appName: 'mywebappdzf'
     package: '**/*.zip'
