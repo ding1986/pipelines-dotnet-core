@@ -19,7 +19,7 @@ jobs:
       getAoutVar : $[dependencies.A.outputs['setVarStep.myOutVar']]
     steps:
       - checkout: none
-      - script: echo "job B get job A out variable is  $(getAutoVar)"
+      - script: echo "job B get job A out variable is  $(getAoutVar)"
         name : Bechovar
 
 
