@@ -79,7 +79,7 @@ jobs:
              echo ${{ parameters.myMultiString}};
              echo ${{ parameters.dzfNumber }};
              echo ${{ parameters.dzfBoolean }};
-             echo ${{ parameters.dzfObject }};
+             echo ${{ parameters.dzfObject.foo }};
 
 # - name: myStep
 #   type: step
