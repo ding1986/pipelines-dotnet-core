@@ -3,5 +3,5 @@ trigger: none
 extends:
   template: sample-param.yml
   parameters:
-      yesNo: false # set to a non-boolean value to have the build fail
+    yesNo: true
 
