@@ -3,11 +3,11 @@ trigger: none
 
 # azure-pipeline.yml
 
-resources:
- containers:
-     - container: my-container
-       endpoint: my-service-connection
-       image: mycontainerimages
+# resources:
+#  containers:
+#      - container: my-container
+#        endpoint: my-service-connection
+#        image: mycontainerimages
 
 extends:
     template: params.yml
