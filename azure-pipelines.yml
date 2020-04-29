@@ -10,7 +10,7 @@ trigger: none
 #        image: mycontainerimages
 
 extends:
-    template: params.yml
+    # template: params.yml
     parameters:
         yesNo: true
         image: 'windows-latest'
