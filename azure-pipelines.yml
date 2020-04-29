@@ -1,22 +1,6 @@
 # parameters:
-# - name: dzfString
-#   type: string
-#   default: this is the default string
-# - name: myMultiString
-#   type: string
-#   default: this is the default multistring
-#   values:
-#   - strings1
-#   - strings2
-# - name: dzfNumber
-#   type: number
-#   default: 3
-#   values:
-#     - 1
-#     - 2
-#     - 3
-#     - 4
-#     - 5
+
+
 # - name: dzfBoolean
 #   type: boolean
 #   default: true
@@ -44,6 +28,31 @@ parameters :
   values:
   - strings1
   - strings2
+- name: dzfNumber
+  type: number
+  default: 3
+  values:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+- name: dzfBoolean
+  type: boolean
+  default: true
+- name: dzfObject
+  type: object
+  default:
+    foo: FOO
+    bar: BAR
+    things:
+    - one
+    - two
+    - three
+    nested:
+      one: apple
+      two: pear
+      count: 3
 - name: dzfStep
   type: step
   default: 
@@ -67,7 +76,10 @@ jobs:
   steps:
     - checkout: none
     - bash : echo ${{ parameters.dzfString }};
-             echo ${{ parameters.myMultiString}}
+             echo ${{ parameters.myMultiString}};
+             echo ${{ parameters.dzfNumber }};
+             echo ${{ parameters.dzfBoolean }};
+             echo ${{ parameters.dzfObject }};
 
 # - name: myStep
 #   type: step
