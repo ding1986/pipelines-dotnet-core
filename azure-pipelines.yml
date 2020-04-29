@@ -58,7 +58,8 @@ jobs:
     - ${{ parameters.dzfStep }}
 
 - job : showNormalParam
-  - bash : echo ${{ parameters.dzfString }}
+  steps:
+    - bash : echo ${{ parameters.dzfString }}
 
 # - name: myStep
 #   type: step
