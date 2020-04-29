@@ -3,7 +3,7 @@ trigger: none
 jobs :
 - job : A
   variables:
-    # a: $[counter(format('{0:yyyyMMdd}', pipeline.startTime),5)]
+    a: $[counter(format('{0:yyyyMMddHHmmss}', pipeline.startTime),5)]
     b: $[format('{0:yyyyMMddHHmmss}', pipeline.startTime)]
   steps:
   - checkout: none
