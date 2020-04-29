@@ -1,10 +1,12 @@
 # File: azure-pipelines.yml
 trigger: none
 
-# File: azure-pipelines.yml
-
-variables:
-- template: vars.yml  # Template reference
-
-steps:
-- script: echo My favorite vegetable is ${{ variables.favoriteVeggie }}.
+# Delay
+# Delay further execution of a workflow by a fixed time
+jobs:
+- job: RunsOnServer
+  pool: Server
+  steps:
+  - task: Delay@1
+    inputs:
+      delayForMinutes: '0'
