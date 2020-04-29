@@ -1,16 +1,10 @@
 # File: azure-pipelines.yml
 trigger: none
 
-# azure-pipeline.yml
+# File: azure-pipelines.yml
 
-# resources:
-#  containers:
-#      - container: my-container
-#        endpoint: my-service-connection
-#        image: mycontainerimages
+variables:
+- template: vars.yml  # Template reference
 
-extends:
-    # template: params.yml
-    parameters:
-        yesNo: true
-        image: 'windows-latest'
+steps:
+- script: echo My favorite vegetable is ${{ variables.favoriteVeggie }}.
