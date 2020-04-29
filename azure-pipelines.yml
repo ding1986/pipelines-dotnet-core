@@ -40,7 +40,7 @@ parameters :
   default: this is the default string
 - name: myMultiString
   type: string
-  default: this is the default multistring
+  default: strings1
   values:
   - strings1
   - strings2
