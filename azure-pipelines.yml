@@ -11,6 +11,8 @@ pool:
 
 variables:
   buildConfiguration: 'Release'
+  azureSubscription: <Name of the Azure subscription>
+  appName: "mywebapp"
 
 steps:
 - script: dotnet build --configuration $(buildConfiguration)
@@ -35,3 +37,12 @@ steps:
     publishWebProjects: True
     arguments: '--configuration $(BuildConfiguration) '
     zipAfterPublish: True
+
+## Add the below snippet at the end of your pipeline
+- task: AzureWebApp@1
+  displayName: 'Azure Web App Deploy'
+  inputs:
+    azureSubscription: $(azureSubscription)
+    appType: webAppLinux
+    appName: $(appName)
+    package: $(System.ArtifactsDirectory)/**/*.zip
