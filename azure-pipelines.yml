@@ -7,7 +7,7 @@ trigger:
 - master
 
 pool:
-  vmImage: 'ubuntu-18.04'
+  vmImage: 'ubuntu-latest'
 
 variables:
   buildConfiguration: 'Release'
@@ -36,7 +36,6 @@ steps:
     arguments: '--configuration $(BuildConfiguration) '
     zipAfterPublish: True
 
-## Add the below snippet at the end of your pipeline
 - task: AzureWebApp@1
   displayName: 'Azure Web App Deploy'
   inputs:
