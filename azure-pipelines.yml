@@ -1,53 +1,131 @@
-parameters:
-- name: myString
-  type: string
-  default: a string
-- name: myMultiString
-  type: string
-  default: default
-  values:
-  - default
-  - ubuntu
-- name: myNumber
-  type: number
-  default: 2
-  values:
-  - 1
-  - 2
-  - 4
-  - 8
-  - 16
-- name: myBoolean
-  type: boolean
-  default: true
-- name: myObject
-  type: object
-  default:
-    foo: FOO
-    bar: BAR
-    things:
-    - one
-    - two
-    - three
-    nested:
-      one: apple
-      two: pear
-      count: 3
-- name: myStep
+# parameters:
+# - name: dzfString
+#   type: string
+#   default: this is the default string
+# - name: myMultiString
+#   type: string
+#   default: this is the default multistring
+#   values:
+#   - strings1
+#   - strings2
+# - name: dzfNumber
+#   type: number
+#   default: 3
+#   values:
+#     - 1
+#     - 2
+#     - 3
+#     - 4
+#     - 5
+# - name: dzfBoolean
+#   type: boolean
+#   default: true
+# - name: dzfObject
+#   type: object
+#   default:
+#     foo: FOO
+#     bar: BAR
+#     things:
+#     - one
+#     - two
+#     - three
+#     nested:
+#       one: apple
+#       two: pear
+#       count: 3
+
+parameters :
+- name: dzfStep
   type: step
-  default:
-    script: echo my step
-- name: mySteplist
+  default: 
+    script: echo my is a step
+- name: dzfStepList
   type: stepList
   default:
-    - script: echo step one
-    - script: echo step two
+    - script: echo 1 step
+    - script: echo 2 step
 
 trigger: none
 
-jobs: 
-- job: stepList
-  steps: ${{ parameters.mySteplist }}
-- job: myStep
-  steps:
-    - ${{ parameters.myStep }}
+jobs:
+- job : stepList
+  steps: ${{ parameters.dzfStepList }}
+  
+# - job : Step
+#   steps:
+#     - ${{ parameters.dzfStep }}
+
+# - job : showNormalParam
+
+# - name: myStep
+#   type: step
+#   default:
+#     script: echo my step
+# - name: mySteplist
+#   type: stepList
+#   default:
+#     - script: echo step one
+#     - script: echo step two
+
+# trigger: none
+
+# jobs: 
+# - job: stepList
+#   steps: ${{ parameters.mySteplist }}
+# - job: myStep
+#   steps:
+#     - ${{ parameters.myStep }}
+
+# parameters:
+# - name: myString
+#   type: string
+#   default: a string
+# - name: myMultiString
+#   type: string
+#   default: default
+#   values:
+#   - default
+#   - ubuntu
+# - name: myNumber
+#   type: number
+#   default: 2
+#   values:
+#   - 1
+#   - 2
+#   - 4
+#   - 8
+#   - 16
+# - name: myBoolean
+#   type: boolean
+#   default: true
+# - name: myObject
+#   type: object
+#   default:
+#     foo: FOO
+#     bar: BAR
+#     things:
+#     - one
+#     - two
+#     - three
+#     nested:
+#       one: apple
+#       two: pear
+#       count: 3
+# - name: myStep
+#   type: step
+#   default:
+#     script: echo my step
+# - name: mySteplist
+#   type: stepList
+#   default:
+#     - script: echo step one
+#     - script: echo step two
+
+# trigger: none
+
+# jobs: 
+# - job: stepList
+#   steps: ${{ parameters.mySteplist }}
+# - job: myStep
+#   steps:
+#     - ${{ parameters.myStep }}
