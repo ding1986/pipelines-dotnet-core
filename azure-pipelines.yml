@@ -8,7 +8,7 @@ jobs:
       - checkout: none
       - powershell: echo "##vso[task.setvariable variable=myOutVar;isOutput=true]var_value"
         name : setVarStep
-      - script: echo "my out variable is :"  $(myOutVar)
+      - script: echo "my out variable is $(myOutVar)"
         name : Aechovar
 
   - job: B
@@ -19,7 +19,7 @@ jobs:
       getAutoVar : $[dependencies.A.outpus['setVarStep.myOutVar']]
     steps:
       - checkout: none
-      - script: echo "job B get job A out variable is:" $(getAutoVar)
+      - script: echo "job B get job A out variable is  $(getAutoVar)"
         name : Bechovar
 
 
