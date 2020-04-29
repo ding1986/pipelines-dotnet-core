@@ -7,6 +7,4 @@ jobs:
 - job: RunsOnServer
   pool: Server
   steps:
-  - task: Delay@1
-    inputs:
-      delayForMinutes: '0'
+  - bash: echo "test"
