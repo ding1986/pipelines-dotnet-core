@@ -11,7 +11,7 @@ pool:
 
 variables:
   buildConfiguration: 'Release'
-  azureSubscription: <Name of the Azure subscription>
+  azureSubscription: 'dzfenvironmenttest'
   appName: "mywebapp"
 
 steps:
