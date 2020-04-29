@@ -1,25 +1,10 @@
 trigger: none
 
-jobs:
-  - job: A
-    pool:
-      VmImage: "vs2017-win2016"
-    steps:
-      - checkout: none
-      - powershell: echo "##vso[task.setvariable variable=myOutVar;isOutput=true]var_value"
-        name : setVarStep
-      - script: echo "my out variable is $(setVarStep.myOutVar)"
-        name : Aechovar
-
-  - job: B
-    dependsOn: A
-    pool:
-      VmImage: "ubuntu-16.04"
-    variables:
-      getAoutVar : $[dependencies.A.outputs['setVarStep.myOutVar']]
-    steps:
-      - checkout: none
-      - script: echo "job B get job A out variable is  $(getAoutVar)"
-        name : Bechovar
-
+jobs :
+- job : A
+  variables:
+    a: $[counter(format('{0:yyyyMMdd}', pipeline.startTime),100)]
+  steps:
+  - checkout: none
+  - bash : echo "$(a)"
 
