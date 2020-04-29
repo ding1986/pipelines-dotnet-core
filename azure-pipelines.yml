@@ -6,8 +6,8 @@ jobs:
       a : 10
     steps:
       - bash: 
-            echo "1 bash value before $(a)"
-            echo "##vso[task.setvariable variable=a]99"
-            echo "1 bash value after $(a)"
+            echo "1 bash value before $(a)";
+            echo "##vso[task.setvariable variable=a]99";
+            echo "1 bash value after $(a)";
       - bash: 
-            echo "2 bash value is $(a)"
+            echo "2 bash value is $(a)";
