@@ -50,10 +50,9 @@ trigger: none
 jobs:
 - job : stepList
   steps: ${{ parameters.dzfStepList }}
-  
-# - job : Step
-#   steps:
-#     - ${{ parameters.dzfStep }}
+- job : Step
+  steps:
+    - ${{ parameters.dzfStep }}
 
 # - job : showNormalParam
 
