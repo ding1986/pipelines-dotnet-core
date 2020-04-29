@@ -35,6 +35,9 @@
 #       count: 3
 
 parameters :
+- name: dzfString
+  type: string
+  default: this is the default string
 - name: dzfStep
   type: step
   default: 
@@ -54,7 +57,8 @@ jobs:
   steps:
     - ${{ parameters.dzfStep }}
 
-# - job : showNormalParam
+- job : showNormalParam
+  - bash : echo ${{ parameters.dzfString }}
 
 # - name: myStep
 #   type: step
