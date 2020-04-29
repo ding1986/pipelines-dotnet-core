@@ -38,6 +38,12 @@ parameters :
 - name: dzfString
   type: string
   default: this is the default string
+- name: myMultiString
+  type: string
+  default: this is the default multistring
+  values:
+  - strings1
+  - strings2
 - name: dzfStep
   type: step
   default: 
@@ -51,15 +57,17 @@ parameters :
 trigger: none
 
 jobs:
-- job : stepList
-  steps: ${{ parameters.dzfStepList }}
-- job : Step
-  steps:
-    - ${{ parameters.dzfStep }}
+# - job : stepList
+#   steps: ${{ parameters.dzfStepList }}
+# - job : Step
+#   steps:
+#     - ${{ parameters.dzfStep }}
 
 - job : showNormalParam
   steps:
-    - bash : echo ${{ parameters.dzfString }}
+    - checkout: none
+    - bash : echo ${{ parameters.dzfString }};
+             echo ${{ parameters.myMultiString}}
 
 # - name: myStep
 #   type: step
