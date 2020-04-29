@@ -11,8 +11,6 @@ pool:
 
 variables:
   buildConfiguration: 'Release'
-  azureSubscription: 'dzfenvironmenttest'
-  appName: "mywebapp"
 
 steps:
 - script: dotnet build --configuration $(buildConfiguration)
@@ -42,7 +40,7 @@ steps:
 - task: AzureWebApp@1
   displayName: 'Azure Web App Deploy'
   inputs:
-    azureSubscription: $(azureSubscription)
+    azureSubscription: 'dzfenvironmenttest'
     appType: webAppLinux
-    appName: $(appName)
-    package: $(System.ArtifactsDirectory)/**/*.zip
+    appName: 'mywebapp'
+    package: '**/*.zip'
