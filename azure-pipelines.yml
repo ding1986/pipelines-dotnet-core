@@ -26,10 +26,13 @@ steps:
     pathtoPublish: '$(Build.ArtifactStagingDirectory)' 
     artifactName: 'myWebsiteName'
 
-
-
-
-
+- task: AzureWebApp@1
+  displayName: 'Azure Web App Deploy'
+  inputs:
+    azureSubscription: 'pipelineenvtest'
+    appType: webAppLinux
+    appName: 'dzfwebtest20200430090607'
+    package: '**/*.zip'
 
 
 
