@@ -46,7 +46,7 @@ steps:
 - task: AzureWebApp@1
   displayName: 'Azure Web App Deploy'
   inputs:
-    azureSubscription: 'dzfenvironmenttest'
+    azureSubscription: 'pipelineenvtest'
     appType: webAppLinux
     appName: 'mywebappdzf'
     package: '**/*.zip'
