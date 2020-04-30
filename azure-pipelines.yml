@@ -5,40 +5,40 @@ pool:
 variables:
   buildConfiguration: 'Release'
 
+stages:
+  - stage:
+    jobs:
+    - job: 
+      steps:
+      - task: DotNetCoreCLI@2
+        displayName: Build
+        inputs:
+          command: build
+          projects: '**/*.csproj'
+          arguments: '--configuration Release' # Update this to match your need
 
+      - task: DotNetCoreCLI@2
+        inputs:
+          command: publish
+          publishWebProjects: True
+          arguments: '--configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)'
+          zipAfterPublish: True
 
-jobs:
-- job: 
-  steps:
-  - task: DotNetCoreCLI@2
-    displayName: Build
-    inputs:
-      command: build
-      projects: '**/*.csproj'
-      arguments: '--configuration Release' # Update this to match your need
+      - task: PublishBuildArtifacts@1
+        inputs:
+          pathtoPublish: '$(Build.ArtifactStagingDirectory)' 
+          artifactName: 'myWebsiteName'
 
-  - task: DotNetCoreCLI@2
-    inputs:
-      command: publish
-      publishWebProjects: True
-      arguments: '--configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)'
-      zipAfterPublish: True
-
-  - task: PublishBuildArtifacts@1
-    inputs:
-      pathtoPublish: '$(Build.ArtifactStagingDirectory)' 
-      artifactName: 'myWebsiteName'
-
-- deployment: VMDeploy
-  displayName: Web
-  environment: 
-    name: plenvjs
-    resourceType: VirtualMachine
-  strategy:
-    runOnce:
-      deploy:
-        steps:
-          - script: echo " 1 sh"
+    - deployment: VMDeploy
+      displayName: Web
+      environment: 
+        name: plenvjs
+        resourceType: VirtualMachine
+      strategy:
+        runOnce:
+          deploy:
+            steps:
+              - script: echo " 1 sh"
 
   # - task: AzureWebApp@1
   #   displayName: 'Azure Web App Deploy'
