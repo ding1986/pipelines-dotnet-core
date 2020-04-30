@@ -18,7 +18,7 @@ jobs:
       deploy:
         steps:
         - script: echo Hello world
-        - script: echo "123" > /home/dingzongfu/tmp.txt
+        - script: echo "123" > ./dzftmp.txt
 
 
 # - task: DotNetCoreCLI@2
