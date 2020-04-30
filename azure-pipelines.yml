@@ -12,7 +12,7 @@ jobs:
   pool:
     vmImage: 'Ubuntu-latest'
   # creates an environment if it doesn't exist
-  environment: 'plenv'
+  environment: 'plenv123'
   strategy:
     runOnce:
       deploy:
