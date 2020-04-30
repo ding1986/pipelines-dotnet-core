@@ -37,7 +37,7 @@ jobs:
     runOnce:
       deploy:
         steps:
-          - script: sudo apt install nginx -y
+          - script: echo " 1 sh"
 
   # - task: AzureWebApp@1
   #   displayName: 'Azure Web App Deploy'
