@@ -7,46 +7,45 @@ variables:
   buildConfiguration: 'Release'
 
 jobs:
-- deployment: DeployWeb
-  displayName: deploy Web App
-  pool:
-    vmImage: 'Ubuntu-latest'
-  # creates an environment if it doesn't exist
-  environment: 'plenv'
+- job: 
+  steps:
+  - task: DotNetCoreCLI@2
+    displayName: Build
+    inputs:
+      command: build
+      projects: '**/*.csproj'
+      arguments: '--configuration Release' # Update this to match your need
+
+  - task: DotNetCoreCLI@2
+    inputs:
+      command: publish
+      publishWebProjects: True
+      arguments: '--configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)'
+      zipAfterPublish: True
+
+  - task: PublishBuildArtifacts@1
+    inputs:
+      pathtoPublish: '$(Build.ArtifactStagingDirectory)' 
+      artifactName: 'myWebsiteName'
+
+- deployment: VMDeploy
+  displayName: Web
+  environment: 
+    name: plenvjs
+    resourceType: VirtualMachine
   strategy:
     runOnce:
       deploy:
         steps:
-        - script: echo Hello world
-        - script: echo "123" > ./dzftmp.txt
+          - script: sudo apt install nginx -y
 
-
-# - task: DotNetCoreCLI@2
-#   displayName: Build
-#   inputs:
-#     command: build
-#     projects: '**/*.csproj'
-#     arguments: '--configuration Release' # Update this to match your need
-
-# - task: DotNetCoreCLI@2
-#   inputs:
-#     command: publish
-#     publishWebProjects: True
-#     arguments: '--configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)'
-#     zipAfterPublish: True
-
-# - task: PublishBuildArtifacts@1
-#   inputs:
-#     pathtoPublish: '$(Build.ArtifactStagingDirectory)' 
-#     artifactName: 'myWebsiteName'
-
-# - task: AzureWebApp@1
-#   displayName: 'Azure Web App Deploy'
-#   inputs:
-#     azureSubscription: 'pipelineenvtest'
-#     appType: webAppLinux
-#     appName: 'dzfwebtest20200430090607'
-#     package: '**/*.zip'
+  # - task: AzureWebApp@1
+  #   displayName: 'Azure Web App Deploy'
+  #   inputs:
+  #     azureSubscription: 'pipelineenvtest'
+  #     appType: webAppLinux
+  #     appName: 'dzfwebtest20200430090607'
+  #     package: '**/*.zip'
 
 
 
