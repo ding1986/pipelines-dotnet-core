@@ -4,7 +4,7 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
 
 trigger:
-- master
+- none
 
 pool:
   vmImage: 'ubuntu-latest'
@@ -41,7 +41,7 @@ steps:
     zipAfterPublish: True
 - task: AzureWebApp@1
   inputs:
-    azureSubscription: 'PipeLineDevopsTest'
+    azureSubscription: 'pipelineenvtest'
     appName: 'dzfwebtest20200430090607'
     package: '**/*.zip'
 
