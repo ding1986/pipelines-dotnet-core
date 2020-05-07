@@ -1,8 +1,20 @@
+# steps:
+#   - 
+# - task: AzureCLI@2
+#   inputs:
+#     azureSubscription: '默认订阅(1)(5c0108aa-9ca4-46f0-9ca1-690390568ec3)'
+#     scriptType: 'ps'
+#     scriptLocation: 'inlineScript'
+#     inlineScript: 'az version'
+
+
 steps:
-  - 
-- task: AzureCLI@2
-  inputs:
-    azureSubscription: '默认订阅(1)(5c0108aa-9ca4-46f0-9ca1-690390568ec3)'
-    scriptType: 'ps'
-    scriptLocation: 'inlineScript'
-    inlineScript: 'az version'
+  - task: AzureCLI@2
+    displayName: Azure CLI
+    inputs:
+      azureSubscription: <Name of the Azure Resource Manager service connection>
+      scriptType: ps
+      scriptLocation: inlineScript
+      inlineScript: |
+        az --version
+        az account show
