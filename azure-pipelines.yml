@@ -9,12 +9,18 @@
 
 
 steps:
-  - task: AzureCLI@2
-    displayName: Azure CLI
-    inputs:
-      azureSubscription: "shellcall"
-      scriptType: pscore
-      scriptLocation: inlineScript
-      inlineScript: |
-        az --version
-        az account show
+- task: AzureCLI@2
+  inputs:
+    azureSubscription: 'shellcall'
+    scriptType: 'pscore'
+    scriptLocation: 'scriptPath'
+    scriptPath: './mytest.ps'
+  # - task: AzureCLI@2
+  #   displayName: Azure CLI
+  #   inputs:
+  #     azureSubscription: "shellcall"
+  #     scriptType: pscore
+  #     scriptLocation: inlineScript
+  #     inlineScript: |
+  #       az --version
+  #       az account show
