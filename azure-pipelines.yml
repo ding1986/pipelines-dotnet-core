@@ -9,13 +9,18 @@
 
 trigger: none
 
+
+
 steps:
 - task: AzureCLI@2
   inputs:
-    azureSubscription: 'shellcall'
+    azureSubscription: 'shellcall1'
     scriptType: 'pscore'
     scriptLocation: 'scriptPath'
     scriptPath: 'mytest.ps1'
+
+
+
     # scriptPath: '/home/vsts/work/1/s/mytest.ps1'
   # - task: AzureCLI@2
   #   displayName: Azure CLI
