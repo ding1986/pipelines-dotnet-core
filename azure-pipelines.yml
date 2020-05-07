@@ -1,8 +1,8 @@
-trigger: none
+steps:
+  - 
 - task: AzureCLI@2
   inputs:
-    azureSubscription: '默认订阅(5c0108aa-9ca4-46f0-9ca1-690390568ec3)'
-    scriptType: 'pscore'
+    azureSubscription: '默认订阅(1)(5c0108aa-9ca4-46f0-9ca1-690390568ec3)'
+    scriptType: 'ps'
     scriptLocation: 'inlineScript'
     inlineScript: 'az version'
-
