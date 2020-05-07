@@ -9,21 +9,21 @@
 
 
 steps:
-# - task: AzureCLI@2
-#   inputs:
-#     azureSubscription: 'shellcall'
-#     scriptType: 'pscore'
-#     scriptLocation: 'scriptPath'
-#     scriptPath: './mytestwww.ps'
-  - task: AzureCLI@2
-    displayName: Azure CLI
-    inputs:
-      azureSubscription: "shellcall"
-      scriptType: pscore
-      scriptLocation: inlineScript
-      inlineScript: |
-        ls
-        echo "******-----*******"
-        pwd
-        echo "******+++++*******"
+- task: AzureCLI@2
+  inputs:
+    azureSubscription: 'shellcall'
+    scriptType: 'pscore'
+    scriptLocation: 'scriptPath'
+    scriptPath: 'mytest.ps'
+  # - task: AzureCLI@2
+  #   displayName: Azure CLI
+  #   inputs:
+  #     azureSubscription: "shellcall"
+  #     scriptType: pscore
+  #     scriptLocation: inlineScript
+  #     inlineScript: |
+  #       ls
+  #       echo "******-----*******"
+  #       pwd
+  #       echo "******+++++*******"
         
