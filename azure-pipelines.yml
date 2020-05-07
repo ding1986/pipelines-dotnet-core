@@ -13,7 +13,7 @@ steps:
     displayName: Azure CLI
     inputs:
       azureSubscription: "shellcall"
-      scriptType: ps
+      scriptType: pscore
       scriptLocation: inlineScript
       inlineScript: |
         az --version
