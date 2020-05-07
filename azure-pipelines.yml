@@ -10,23 +10,23 @@
 trigger: none
 
 steps:
-# - task: AzureCLI@2
-#   inputs:
-#     azureSubscription: 'shellcall'
-#     scriptType: 'pscore'
-#     scriptLocation: 'scriptPath'
-#     scriptPath: 'mytest.ps1'
-  - task: AzureCLI@2
-    displayName: Azure CLI
-    inputs:
-      azureSubscription: "shellcall"
-      scriptType: pscore
-      scriptLocation: inlineScript
-      inlineScript: |
-        echo "******!!!-----*******"
-        ls /home/vsts/work/1/s/
-        echo "******-----*******"
-        pwd
-        echo "******+++++*******"
+- task: AzureCLI@2
+  inputs:
+    azureSubscription: 'shellcall'
+    scriptType: 'pscore'
+    scriptLocation: 'scriptPath'
+    scriptPath: '/home/vsts/work/1/s/mytest.ps1'
+  # - task: AzureCLI@2
+  #   displayName: Azure CLI
+  #   inputs:
+  #     azureSubscription: "shellcall"
+  #     scriptType: pscore
+  #     scriptLocation: inlineScript
+  #     inlineScript: |
+  #       echo "******!!!-----*******"
+  #       ls /home/vsts/work/1/s/
+  #       echo "******-----*******"
+  #       pwd
+  #       echo "******+++++*******"
         
         # /home/vsts/work/1/s/mytest.ps
