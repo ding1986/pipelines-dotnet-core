@@ -29,4 +29,4 @@ steps:
         pwd
         echo "******+++++*******"
         
-        /home/vsts/work/1/s/mytest.ps
+        # /home/vsts/work/1/s/mytest.ps
