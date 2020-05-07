@@ -15,7 +15,7 @@ steps:
     azureSubscription: 'shellcall'
     scriptType: 'pscore'
     scriptLocation: 'scriptPath'
-    scriptPath: 'mytest.ps'
+    scriptPath: 'mytest.ps1'
     # scriptPath: '/home/vsts/work/1/s/mytest.ps1'
   # - task: AzureCLI@2
   #   displayName: Azure CLI
