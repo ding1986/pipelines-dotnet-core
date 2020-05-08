@@ -9,16 +9,14 @@
 
 trigger: none
 
-
-
 steps:
-# - task: AzurePowerShell@5
-#   inputs:
-#     azureSubscription: 'shellcallRG'
-#     ScriptType: 'FilePath'
-#     ScriptPath: 'mytest.ps1'
-#     scriptArguments: 'param1 param2 param3 param4'
-#     azurePowerShellVersion: 'LatestVersion'
+- task: AzurePowerShell@5
+  inputs:
+    azureSubscription: 'shellcallRG'
+    ScriptType: 'FilePath'
+    ScriptPath: 'mytest.ps1'
+    scriptArguments: 'param1 param2 param3 param4'
+    azurePowerShellVersion: 'LatestVersion'
 
 # - powershell: '/home/vsts/work/1/s/mytest.ps1 param1 param2 param3'
 
@@ -34,17 +32,17 @@ steps:
 
 
     # scriptPath: '/home/vsts/work/1/s/mytest.ps1'
-  - task: AzureCLI@2
-    displayName: Azure CLI
-    inputs:
-      azureSubscription: "shellcallRG"
-      scriptType: pscore
-      scriptLocation: inlineScript
-      inlineScript: |
-        echo "******!!!-----*******"
-        az group list | jq .[].name
-        echo "******-----*******"
-        pwd
-        echo "******+++++*******"
+  # - task: AzureCLI@2
+  #   displayName: Azure CLI
+  #   inputs:
+  #     azureSubscription: "shellcallRG"
+  #     scriptType: pscore
+  #     scriptLocation: inlineScript
+  #     inlineScript: |
+  #       echo "******!!!-----*******"
+  #       az group list | jq .[].name
+  #       echo "******-----*******"
+  #       pwd
+  #       echo "******+++++*******"
         
         # /home/vsts/work/1/s/mytest.ps
