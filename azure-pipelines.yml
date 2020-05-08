@@ -12,14 +12,17 @@ trigger: none
 
 
 steps:
-# - task: AzurePowerShell@5
-#   inputs:
-#     azureSubscription: 'shellcall'
-#     ScriptType: 'FilePath'
-#     ScriptPath: 'mytest.ps1'
-#     azurePowerShellVersion: 'LatestVersion'
+- task: AzurePowerShell@5
+  inputs:
+    azureSubscription: 'shellcall'
+    ScriptType: 'FilePath'
+    ScriptPath: 'mytest.ps1'
+    scriptArguments: 'param1 param2 param3 param4'
+    azurePowerShellVersion: 'LatestVersion'
 
-- powershell: '/home/vsts/work/1/s/mytest.ps1 param1 param2 param3'
+# - powershell: '/home/vsts/work/1/s/mytest.ps1 param1 param2 param3'
+
+
 
 # - task: AzureCLI@2
 #   inputs:
