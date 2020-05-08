@@ -14,7 +14,7 @@ trigger: none
 steps:
 - task: AzurePowerShell@5
   inputs:
-    azureSubscription: 'shellcall'
+    azureSubscription: 'shellcallRG'
     ScriptType: 'FilePath'
     ScriptPath: 'mytest.ps1'
     scriptArguments: 'param1 param2 param3 param4'
