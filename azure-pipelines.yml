@@ -37,7 +37,7 @@ steps:
   - task: AzureCLI@2
     displayName: Azure CLI
     inputs:
-      azureSubscription: "shellcall"
+      azureSubscription: "shellcallRG"
       scriptType: pscore
       scriptLocation: inlineScript
       inlineScript: |
